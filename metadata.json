@@ -1,0 +1,6 @@
+{
+  "name": "TOMORROW//OBJECTS — A Museum of Possible Futures",
+  "description": "Explore TOMORROW//OBJECTS, an immersive digital archive of speculative inventions, technologies and possible futures.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

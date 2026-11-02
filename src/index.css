@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-primary: #F6F5F0;
+    --bg-secondary: #FFFFFF;
+    --bg-elevated: #EFECE6;
+    --text-primary: #0F141A;
+    --text-secondary: #525D6B;
+    --accent-cyan: #087E8B;
+    --accent-silver: #64748B;
+    --accent-warm: #9A6F28;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  html {
+    background-color: #F6F5F0;
+    color: #0F141A;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle light gallery scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F5F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #087E8B;
+}
