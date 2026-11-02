@@ -23,7 +23,7 @@ An experimental, frontend-only 3D digital museum and speculative design archive 
 ## Development & Build Instructions
 
 ```bash
-# Install dependencies
+# Install dependencies (respecting .npmrc legacy-peer-deps)
 npm install --legacy-peer-deps
 
 # Run unit tests (Node built-in test runner via tsx)
@@ -35,3 +35,38 @@ npm run dev
 # Build for production
 npm run build
 ```
+
+## Vercel Deployment (Fully Configured)
+
+This project is pre-configured for direct, zero-config deployment on [Vercel](https://vercel.com):
+
+1. **Vercel Configuration (`vercel.json`)**:
+   - **Framework Preset**: `vite`
+   - **Build Command**: `npm run build` (or `npm run vercel-build`)
+   - **Output Directory**: `dist`
+   - **Single Page Application (SPA) Rewrites**: Automatically routes all deep links to `/index.html` with clean URLs.
+   - **Performance Edge Caching**: Immutable 1-year caching for static bundles (`/assets/*`), dynamic revalidation for `index.html`.
+   - **Security Headers**: `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`.
+   - **Modular Code Splitting**: Three.js and vendor chunks are isolated for minimal initial bundle transfer.
+   - **Package Resolution**: `legacy-peer-deps=true` in `.npmrc` ensures automated builds resolve cleanly on Vercel's build machines.
+
+### Deploy via Vercel CLI
+
+```bash
+# 1. Install Vercel CLI (if not already installed)
+npm install -g vercel
+
+# 2. Deploy to preview
+vercel
+
+# 3. Deploy to production
+vercel --prod
+```
+
+### Deploy via GitHub / Vercel Dashboard
+
+1. Push your repository to GitHub / GitLab / Bitbucket.
+2. In the [Vercel Dashboard](https://vercel.com/new), click **Add New Project** and import the repository.
+3. Vercel will automatically detect `vercel.json` and the Vite framework preset.
+4. Click **Deploy**. The site will build and go live instantly.
+
